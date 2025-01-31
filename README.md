@@ -11,11 +11,11 @@ A single I3S data set, referred to as a scene layer, is a container for arbitrar
 
 The I3S format is declarative and extendable, and can be used to represent different types of 3D data. The following layer types are detailed in this documentation and validated via implementation and production deployments:
 
-- [3D objects](docs/1.9/3Dobject_ReadMe.md) (e.g. building exteriors, from GIS data as well as 3D models in various formats)
-- [Integrated mesh](docs/1.9/IntegratedMesh_ReadMe.md) (e.g. an integrated surface representing the skin of the earth, gathered through satellite, aerial, or drone imagery via dense matching photogrammetry software)
-- [Point](docs/1.9/Point_ReadMe.md) (e.g. hospitals, schools, trees, street furniture, signs, from GIS data)
+- [3D objects](docs/1.10/3Dobject_ReadMe.md) (e.g. building exteriors, from GIS data as well as 3D models in various formats)
+- [Integrated mesh](docs/1.10/IntegratedMesh_ReadMe.md) (e.g. an integrated surface representing the skin of the earth, gathered through satellite, aerial, or drone imagery via dense matching photogrammetric software)
+- [Point](docs/1.10/Point_ReadMe.md) (e.g. hospitals, schools, trees, street furniture, signs, from GIS data)
 - [Point cloud](docs/2.1/pcsl_ReadMe.md) (e.g. large point data from LiDAR)
-- [Building scene layer](docs/1.9/BSL_ReadMe.md) (e.g. comprehensive building model including building components)
+- [Building scene layer](docs/1.10/BSL_ReadMe.md) (e.g. comprehensive building model including building components)
 
 
 The specification of the [indexed 3D scene layer (I3S)](format/Indexed%203d%20Scene%20Layer%20Format%20Specification.md) and the specification for accessing I3S resources as scene service REST endpoints, are described in this document as open formats.  The REST endpoint implementations are described in the ReadMe for each layer type. 
@@ -28,7 +28,7 @@ This GitHub repo includes documentation for 1.6, 1.7, 1.8, 1.9 and 2.0. Deprecat
 The goal for I3S is to enable streaming large 3D datasets with high performance and scalability. The I3S format is designed from the ground up to be cloud, web and mobile friendly. It is based on JSON, REST and modern web standards, making it easy to handle, parse, and render by web and mobile clients.
 
 ## Designed for 3D
-The I3S format is intrinsically designed to support 3D geospatial content. The requisite coordinate reference systems and height models are used in conjunction with a rich set of layer types.
+The I3S format is intrinsically designed to support 3D geospatial content.  The requisite coordinate reference systems and height models are used in conjunction with a rich set of layer types.
 
 ## Open Standard
 
@@ -40,35 +40,17 @@ The Open Geospatial Consortium (OGC) approved I3S as a Community Standard which 
 
 The open community specification hosted in this GitHub repository is the sole source of content for the OGC I3S Community Standard. The community specification evolves driven by advancements in technology as well as community needs. The OGC process allows for updating and synchronizing the Community Standard with this community specification at regular intervals to achieve equivalency. 
 
-Following similar patterns used in the past, in late December 2022 OGC updated the I3S Community Standard to include Building Scene Layer Type from this repository. To facilitate this process, as well as to quickly provide new capabilities to the community without impacting other existing scene layer types and profiles, each I3S layer evolves independently and follows its own release cycle.
+The current I3S OGC Community Standard is OGC I3S 1.3 ([document no. 17-014r9](https://www.ogc.org/publications/standard/i3s/)), aligning with the specification in this repository as indicated in the table below. Esri and OGC actively synchronize this repository’s I3S specification with the OGC I3S Community Standard. However, to streamline this process and rapidly deliver new features without affecting existing scene layer types and profiles, each I3S layer evolves independently on its own release cycle.
 
 The table below shows how the OGC community standard relates to the community specification hosted here.
 
 | **I3S Profile**   | **Supported Layer Types**                                                                               | **I3S community specification**      | **OGC I3S community standard**          |
 | ----------------- | ------------------------------------------------------------------------------------------------------- |------------------|----------------------------- |
-| MeshPyramids      | [3D Object](docs/1.8/3Dobject_ReadMe.md) and [Integrated Mesh](docs/1.8/IntegratedMesh_ReadMe.md) | 1.8              | 1.2                         |
-| Points            | [Point](docs/1.8/Point_ReadMe.md)                                                  | 1.8              | 1.2                          |
-| PointClouds       | [Point Cloud](docs/2.0/pcsl_ReadMe.md)                                                               | 2.0              | 1.1 |
-| Building          | [Building scene layer](docs/1.8/BSL_ReadMe.md)        | 1.8             | 1.3 |
+| MeshPyramids      | [3D Object](docs/1.7/3Dobject_ReadMe.md) and [Integrated Mesh](docs/1.8/IntegratedMesh_ReadMe.md) | 1.7              | 1.3                         |
+| Points            | [Point](docs/1.7/Point_ReadMe.md)                                                  | 1.7              | 1.3                          |
+| PointClouds       | [Point Cloud](docs/2.0/pcsl_ReadMe.md)                                                               | 2.0              | 1.3 |
+| Building          | [Building scene layer](docs/1.7/BSL_ReadMe.md)        | 1.7             | 1.3 |
 
-
-
-[OGC I3S 1.2 Community Standard](https://docs.ogc.org/cs/17-014r8/17-014r8.html) added backward compatible enhancements targeting MeshPyramids profile 3D Object and Integrated Mesh layers, that are released as version 1.8 in this repository. Specifically it added:
-
-* Support for node paging capability significantly reducing the client-server traffic by bundling individual node metadata resources into compact pages of nodes.
-
-* Support for Draco geometry compression. Compression of I3S geometry attributes creates more compact content, which in turn provides a smaller payload, increasing performance.
-
-* Support for supercompression of texture data using the Basis Universal Texture interchange system in Khronos® KTX™ 2.0 format, reducing compressed texture size by over 60%, which in turn provides a smaller payload, increasing performance.
-
-* More optimal selection strategy – standardizes on Oriented Bounding Boxes (OBBs) based node selection criterion
-Support for advanced material definitions such as physically based materials. Feature compatible with Khronos® glTF™ standard.
-
-[OGC I3S 1.3 Community Standard](https://docs.ogc.org/cs/17-014r9/17-014r9.html) added support for a new layer type, Building Scene Layer (BSL) released as version 1.8 in this repository. Specifically it added:
-
-* A Building Scene Layer that captures 3D model content based on Building Information Models (BIM). BSL, similarly to the other layer types supported, adheres to common I3S principles such as: Bounding Volume Hierarchy (BVH) and geometric error driven selection criteria, multi-LOD data structure, content batching optimized for streaming as well as rendering and a compact packaging format – suited for easier sharing/portability.
- 
-* Editorial updates/corrections.
 
 
 ## What's New?
@@ -88,8 +70,8 @@ There are several applications that can create and consume scene layers. The tab
  
   <tr>
   <td>Urban Computing Foundation</td>
-  <td><a href="https://loaders.gl/examples/i3s">Vis.gl framework (loaders.gl and deck.gl modules) </a></td>
-  <td>IntegratedMesh, 3D Object, Building</td>
+  <td><a href="https://loaders.gl/examples/i3s">loaders.gl</a></td>
+  <td>IntegratedMesh, 3D Object</td>
   <td></td>
   <td align="middle"><img alt="supported" src="format/images/checkmark.png"></td>
  </tr>
@@ -139,14 +121,6 @@ There are several applications that can create and consume scene layers. The tab
   <td>Agisoft</td>
   <td><a href="https://www.agisoft.com/">Metashape</a></td>
   <td>IntegratedMesh</td>  
-  <td align="middle"><img alt="supported" src="format/images/checkmark.png"></td>
-  <td></td>
- </tr>
- </tr>
-  </tr> 
-  <td>GeoScene PRO 2.1 and GeoScene Enterprise 2.1</td>
-  <td><a href="https://www.geoscene.cn/">GeoScene</a></td>
-  <td>3D Object, IntegratedMesh, Point, PointCloud, Building </td>  
   <td align="middle"><img alt="supported" src="format/images/checkmark.png"></td>
   <td></td>
  </tr>
@@ -383,17 +357,17 @@ License history:
 
 Version 1.0 – 1.5 (04/30/2015 to 01/30/2017) of this specification are licensed under the older Creative Commons Attribution-NoDerivs 3.0 Unported license.
 
-Version 1.6 – Present Integrated mesh, 3D object, Point Scene Layer, Building Scene Layer (01/31/2017 to Present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License.  
+Version 1.6 – present integrated mesh, 3D object, point scene layer, building scene layer (01/31/2017 to present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License.  
 
-Version 1.7 – Present Integrated mesh, 3D object, Point Scene Layer, Building Scene Layer(06/30/2019 to Present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License.  
+Version 1.7 – present integrated mesh, 3D object, point scene layer, building scene layer (06/30/2019 to present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License.  
 
-Version 1.8 – Present Integrated mesh, 3D object, Point Scene Layer, Building Scene Layer (05/20/2021 to Present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License.  
+Version 1.8 – present integrated mesh, 3D object, point scene layer, building scene layer (05/20/2021 to present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License.  
 
-Version 1.9 – Present Integrated mesh, 3D object, Point Scene Layer, Building Scene Layer (03/13/2023 to Present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License. 
+Version 1.9 – present integrated mesh, 3D object, point scene layer, building scene layer (03/13/2023 to present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License. 
 
-Version 2.0 - Present Point Cloud Scene Layer (01/01/2017 to Present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License. 
+Version 2.0 - present point cloud scene layer (01/01/2017 to present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License. 
 
-Version 2.1 - Present Point Cloud Scene Layer (03/13/2023 to Present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License. 
+Version 2.1 - present point cloud scene layer (03/13/2023 to present) of this specification are licensed under the newer Creative Commons Attribution-NoDerivatives 4.0 International Public License. 
 
 ## License for JSON resources, validator, and examples <a name="license-for-indexed-3d-scene-format-and-rest-endpoint-specification"></a>
 

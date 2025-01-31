@@ -1,9 +1,26 @@
 Version History
+
 ===============================================
-Last updated 5/21/2020
+Last updated 11/05/2024
+
+### Version 1.10
+
+- Added timeInfo to 3D object (cmn profile) and point scene layer. The timeInfo property defines the start and end time as well as the full time extent of a layer. This property is often used to time enable a layer for example to participate in a time slider and animate feature to be visible at specific times.
+- Added rangeInfo to 3D object (cmn profile) and point scene layer. The rangeInfo property defines min and max range of a feature. This property can be used to show individual floors of a building,for example.
+
+### Version 2.1 (Point Cloud Scene Layer)
+
+- Added capablity "Extract" to point cloud scene layers. The indication of the capability extract allows client application clip part of a layer to create a new SLPK, for example. 
+
+### Version 1.9
+
+- Added capablity "Extract" to integrated mesh, 3D objects, points, and building scene layers. The indication of the capability extract allows client application clip part of a layer to create a new SLPK, for example.
+- Defining time as [ISO 8601](docs/1.9/ECMA_ISO8601.md) to provide well defined, unambigious representation of calendar dates and times.
 
 ### Version 1.8
+
 Released 5/21/2021 1.8 Versions of [3D Object Scene Layer](docs/1.8/3Dobject_ReadMe.md), [Integrated Mesh Scene Layer](docs/1.8/IntegratedMesh_ReadMe.md), [Building Scene Layer](docs/1.8/BSL_ReadMe.md) and [Point Scene Layer](docs/1.8/Point_ReadMe.md)
+
  - Upgrade [I3S Converter Tool](i3s_converter/i3s_converter_ReadMe.md) to convert I3S 1.4 - 1.7 to 1.8 versions
  - Minor updates
 
@@ -42,7 +59,7 @@ Released 03/01/2019 - (applies to [MeshPyramids](docs/1.6/store.cmn.md profile) 
 #### [Building Scene Layer](docs/1.6/BSL_ReadMe.md)
 - [Building Scene Layer](docs/1.6/BSL_ReadMe.md) profile specification. The Building Scene Layer is used to visualize and work with buildings.
 
-### Version 2.0
+### Version 2.0 (Point Cloud Scene Layer)
 
 Released 03/01/2019  - (applies to [Point Cloud](docs/1.6/store.cmn.md) profile)
 

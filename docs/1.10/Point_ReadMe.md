@@ -1,4 +1,4 @@
-# Point Scene Layer (1.8)
+# Point Scene Layer (1.10)
 
 Point scene layers contain point features and their attributes. Point scene layers are often used to visualize large amounts of 3D data like trees or buildings.  Most phenomena that can be visualized by 3D symbols can be displayed with a point scene layer.
 
@@ -21,8 +21,10 @@ The point scene layer is structured into a tree of multiple JSON files. Point sc
 - attribute (binary)
 - geometryBuffer (binary)
 - [3DNodeIndexDocument](3DNodeIndexDocument.cmn.md)*
-- [statistics](statisticsInfo.cmn.md)
+- [statistics](stats.cmn.md)
 - [resources](resources.psl.md)
+
+Point scene layer packages contain [metadata](metadata.cmn.md) and optionally contain a [hash table](slpk_hashtable.cmn.md) for faster indexing. 
 
 *Example of point scene layer structure*
 
@@ -226,4 +228,4 @@ The available gometry formats are specified in [geometryDefinitions](geometryDef
 </tr>
 </table>
 
-[resources](resource.psl.md)
+[resources](resources.psl.md)
